@@ -20,6 +20,7 @@ const TeamFilter: React.FC<TeamFilterProps> = ({ valueKey, data, name }) => {
 
   const onClick = (id: string) => {
     const params = new URLSearchParams(searchParams.toString())
+    params.set("offset", "0")
     if (params.toString().includes(valueKey) && params.toString().includes(id)) {
       params.delete(valueKey)
     } else {

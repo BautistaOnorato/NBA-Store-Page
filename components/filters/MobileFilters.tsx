@@ -1,7 +1,7 @@
 "use client"
 
 import { Category, Size, Team } from "@/models/models";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "../ui/Button";
 import { Plus, X } from "lucide-react";
 import Filter from "./Filter";
