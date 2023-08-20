@@ -1,3 +1,4 @@
+import PageSelector from "@/components/PageSelector";
 import Filter from "@/components/filters/Filter";
 import MobileFilters from "@/components/filters/MobileFilters";
 import TeamFilter from "@/components/filters/TeamFilter";
@@ -6,7 +7,7 @@ import NoResults from "@/components/ui/NoResults";
 import ProductCard from "@/components/ui/ProductCard";
 import { getBillboard } from "@/service/billboards";
 import { getCategories, getCategory } from "@/service/categories";
-import { getProducts } from "@/service/products";
+import { getProducts, getProductsCount } from "@/service/products";
 import { getSizes } from "@/service/sizes";
 import { getTeam, getTeams } from "@/service/teams";
 
@@ -26,6 +27,11 @@ const TeamPage: React.FC<TeamPageProps> = async ({
 }) => {
 
   const products = await getProducts({
+    teamId: params.teamId,
+    categoryId: searchParams.categoryId,
+    sizeId: searchParams.sizeId,
+  })
+  const productsCount = await getProductsCount({
     teamId: params.teamId,
     categoryId: searchParams.categoryId,
     sizeId: searchParams.sizeId,
@@ -53,13 +59,14 @@ const TeamPage: React.FC<TeamPageProps> = async ({
         </div>
         <div className="mt-6 lg:mt-0 flex-1 border-0 lg:border-l w-full">
           {products.length === 0 && <NoResults />}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-4 pl-5 w-full">
+          <div className="products-grid justify-items-center gap-2 pl-0 lg:pl-5 w-full">
             {
               products.map((item) => (
                 <ProductCard key={item.id} data={item} />
               ))
             }
           </div>
+          <PageSelector productsCount={productsCount} />
         </div>
       </section>
     </main>

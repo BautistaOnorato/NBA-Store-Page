@@ -14,7 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
 
   return (
     <div
-      className="bg-white cursor-pointer border p-3 space-y-4 w-[250px] h-[400px] flex flex-col justify-between rounded-lg"
+      className="bg-white cursor-pointer border p-3 space-y-4 w-[230px] h-[400px] flex flex-col justify-between rounded-lg"
       onClick={() => router.push(`/product/${data?.id}`)}
     >
       <div>

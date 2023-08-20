@@ -33,11 +33,11 @@ const PageSelector: React.FC<PageSelectorProps> = ({ productsCount }) => {
   }
 
   return (
-    <div className="flex items-center justify-center w-full mt-5 gap-4 pl-5">
+    <div className="flex items-center justify-center w-full mt-5 gap-4 pl-0 lg:pl-5">
       <Button disabled={searchParams.get("offset") === "0"} className='hidden sm:block py-1 w-[100px]' onClick={prev}>Previous</Button>
       <div className='flex justify-center items-center gap-2'>
         {
-          Array(Math.floor(productsCount / 12)).fill(null).map((element, i) => (
+          Array(Math.ceil(productsCount / 12)).fill(null).map((element, i) => (
             <button key={`page-${i}`} className={cn('cursor-pointer border h-full py-2 w-[30px] text-center rounded-md', Number(searchParams.get("offset")) / 12 === i && "bg-black text-white border-0")} onClick={() => handlePage(i)}>{i + 1}</button>
           ))
         }

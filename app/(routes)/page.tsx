@@ -13,11 +13,11 @@ export default async function Home() {
   return (
     <main className="flex sm:items-center justify-center flex-col">
       <Billboard billboard={billboard} />
-      <div className="w-[92vw] p-4">
+      <div className="w-full flex items-center justify-center p-4">
         <ProductList title="Featured Products" items={products} />
       </div>
-      <div className="w-[92vw] p-4 space-y-4">
-        <h2 className="font-semibold text-2xl py-4 border-b">Teams</h2>
+      <div className="w-full p-4 space-y-4 flex items-center justify-center flex-col">
+        <h2 className="font-semibold text-2xl py-4 border-b w-full">Teams</h2>
         <TeamsList teams={teams} />
       </div>
     </main>

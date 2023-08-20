@@ -58,7 +58,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         </div>
         <div className="mt-6 lg:mt-0 flex-1 border-0 lg:border-l w-full">
           {products.length === 0 && <NoResults />}
-          <div className="flex flex-wrap justify-center gap-4 pl-5 w-full">
+          <div className="products-grid justify-items-center gap-2 pl-0 lg:pl-5 w-full">
             {
               products.map((item) => (
                 <ProductCard key={item.id} data={item} />

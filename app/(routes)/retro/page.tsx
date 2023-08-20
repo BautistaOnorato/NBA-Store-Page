@@ -6,12 +6,11 @@ import Billboard from "@/components/ui/Billboard";
 import NoResults from "@/components/ui/NoResults";
 import ProductCard from "@/components/ui/ProductCard";
 import { getBillboard } from "@/service/billboards";
-import { getCategories, getCategory } from "@/service/categories";
-import { getColors } from "@/service/colors";
+import { getCategories} from "@/service/categories";
 import { getProducts, getProductsCount } from "@/service/products";
 import { getSizes } from "@/service/sizes";
 import { getTeams } from "@/service/teams";
-import React, { useState } from "react";
+import React from "react";
 
 interface RetroPageProps {
   searchParams: {
@@ -58,7 +57,7 @@ const RetroPage: React.FC<RetroPageProps> = async ({
         </div>
         <div className="mt-6 lg:mt-0 flex-1 border-0 lg:border-l w-full">
           {products.length === 0 && <NoResults />}
-          <div className="flex flex-wrap justify-center gap-4 pl-5 w-full">
+          <div className="products-grid justify-items-center gap-2 pl-0 lg:pl-5 w-full">
             {
               products.map((item) => (
                 <ProductCard key={item.id} data={item} />

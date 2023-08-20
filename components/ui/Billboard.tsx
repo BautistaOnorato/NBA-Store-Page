@@ -1,4 +1,5 @@
 import { Billboard } from "@/models/models";
+import { Urbanist } from "next/font/google";
 
 interface BillboardProps {
   billboard: Billboard;
@@ -15,7 +16,7 @@ const Billboard: React.FC<BillboardProps> = async ({ billboard }) => {
       >
       </div>
       <div className="absolute flex h-full items-center justify-center top-0 w-[80%]">
-        <span className="font-bold text-xl sm:text-3xl md:text-5xl text-white uppercase text-stroke-3 text-center tracking-widest">
+        <span className="billboard-font font-bold text-xl sm:text-3xl md:text-5xl text-white uppercase text-center tracking-widest">
           {billboard.label}
         </span>
       </div>
