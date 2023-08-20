@@ -3,12 +3,6 @@
 import { Team } from "@/models/models";
 import React from "react";
 import TeamCircle from "./ui/TeamCircle";
-import Carousel, {
-  RenderArrowProps,
-  RenderPaginationProps,
-} from "react-elastic-carousel";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 interface TeamsListProps {
   teams: Team[];
